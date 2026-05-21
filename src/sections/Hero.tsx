@@ -9,7 +9,6 @@ export const Hero: React.FC = () => {
     offset: ["start start", "end start"]
   });
 
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const opacityText = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
@@ -21,41 +20,43 @@ export const Hero: React.FC = () => {
   };
 
   return (
-    <section 
+    <section
       ref={containerRef}
-      id="hero" 
+      id="hero"
       className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* Background Video with Parallax */}
-      <motion.div 
-        style={{ y: yBg }}
-        className="absolute inset-0 z-0"
-      >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover opacity-60 scale-[1.05]"
-        >
-          <source 
-            src="https://assets.mixkit.co/videos/preview/mixkit-aerial-panorama-of-a-city-at-night-4235-large.mp4" 
-            type="video/mp4" 
-          />
-          {/* Fallback image if video fails to load */}
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1582948636199-af4de21d1b45?q=80&w=1920')] bg-cover bg-center" />
-        </video>
-        {/* Dark Vignette Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/80" />
-      </motion.div>
+      {/* ── YouTube Video Background ── */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/VMfm5WyEc4Y?autoplay=1&mute=1&loop=1&playlist=VMfm5WyEc4Y&controls=0&showinfo=0&rel=0&disablekb=1&playsinline=1&modestbranding=1"
+          title="The Dubai Mall"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: '177.78vh',
+            height: '56.25vw',
+            minWidth: '100%',
+            minHeight: '100%',
+            transform: 'translate(-50%, -50%)',
+            border: 'none',
+            opacity: 0.65,
+          }}
+        />
+      </div>
 
-      {/* Hero Content with Parallax */}
-      <motion.div 
+      {/* ── Dark Gradient Overlay ── */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black via-black/30 to-black/75 pointer-events-none" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-black/40 via-transparent to-black/40 pointer-events-none" />
+
+      {/* ── Hero Content ── */}
+      <motion.div
         style={{ y: yText, opacity: opacityText }}
         className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center"
       >
-        {/* Animated Subtitle */}
-        <motion.span 
+        {/* Eyebrow */}
+        <motion.span
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
@@ -64,7 +65,7 @@ export const Hero: React.FC = () => {
           Emaar Properties • Global Landmark
         </motion.span>
 
-        {/* Animated Main Title */}
+        {/* Main Title */}
         <h2 className="text-4xl sm:text-6xl md:text-8xl font-display font-bold tracking-[0.05em] text-white leading-[1.1] mb-8">
           <motion.span
             initial={{ opacity: 0 }}
@@ -78,24 +79,53 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, delay: 0.8 }}
-            className="block text-gold-bright mt-2 font-serif italic font-normal tracking-[0.02em] font-serif"
+            className="block text-gold-bright mt-2 font-serif italic font-normal tracking-[0.02em]"
           >
             A Global Destination.
           </motion.span>
         </h2>
 
-        {/* Paragraph Reveal */}
+        {/* Subtext */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 1.3 }}
           className="text-white/80 max-w-2xl text-xs sm:text-sm md:text-base font-light tracking-wide leading-relaxed mb-12"
         >
-          Welcoming over 130 million visitors annually. The epicentre of luxury retail, world-class dining, and global entertainment, situated in the heart of Downtown Dubai.
+          Welcoming over 130 million visitors annually. The epicentre of luxury retail,
+          world-class dining, and global entertainment, situated in the heart of Downtown Dubai.
         </motion.p>
 
+        {/* Stat Strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 1.5 }}
+          className="flex gap-0 mb-12 border border-gold/20"
+        >
+          {[
+            { n: '130M+', l: 'Annual Visitors' },
+            { n: '1,200+', l: 'Retail Stores' },
+            { n: '502M', l: 'Sq Ft GLA' },
+            { n: '#1', l: 'Mall in the World' },
+          ].map((s, i) => (
+            <div
+              key={s.l}
+              className="px-6 py-4 text-center"
+              style={{ borderRight: i < 3 ? '1px solid rgba(201,164,65,0.2)' : 'none' }}
+            >
+              <div className="text-gold font-serif text-xl sm:text-2xl font-semibold leading-none mb-1">
+                {s.n}
+              </div>
+              <div className="text-[8px] tracking-[0.25em] text-white/40 uppercase">
+                {s.l}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
         {/* CTA Buttons */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 1.7 }}
@@ -112,8 +142,8 @@ export const Hero: React.FC = () => {
         </motion.div>
       </motion.div>
 
-      {/* Down Scroll Arrow */}
-      <motion.button 
+      {/* ── Scroll Indicator ── */}
+      <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 1, 0] }}
         transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut', delay: 2.2 }}

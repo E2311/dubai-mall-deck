@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #000000;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Custom Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #c5a880; /* Gold */
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d4af37; /* Pure Gold */
+  }
+
+  /* Presentation Slide Snap Setup (Optional, can be used for section scrolling) */
+  .slide-container {
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    height: 100vh;
+    scroll-behavior: smooth;
+  }
+  
+  .slide-section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Panel */
+  .glass-panel {
+    background: rgba(18, 18, 18, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(197, 168, 128, 0.1);
+  }
+
+  .glass-panel-heavy {
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(197, 168, 128, 0.15);
+  }
+
+  /* Premium Luxury Button styles */
+  .btn-gold {
+    @apply px-8 py-3.5 bg-gradient-to-r from-gold-dark via-gold to-gold-dark text-black font-semibold uppercase tracking-widest text-xs rounded-none border border-gold transition-all duration-500 ease-out shadow-[0_0_15px_rgba(197,168,128,0.2)];
+  }
+
+  .btn-gold:hover {
+    @apply shadow-[0_0_25px_rgba(212,175,55,0.4)] brightness-110 translate-y-[-1px];
+  }
+
+  .btn-outline-gold {
+    @apply px-8 py-3.5 bg-transparent text-gold uppercase tracking-widest text-xs font-semibold rounded-none border border-gold-dark/40 hover:border-gold transition-all duration-500 ease-out;
+  }
+
+  .btn-outline-gold:hover {
+    @apply bg-gold/10 text-white shadow-[0_0_20px_rgba(197,168,128,0.15)] translate-y-[-1px];
+  }
+
+  /* Luxury Link styling */
+  .link-gold {
+    @apply relative text-xs uppercase tracking-wider font-semibold text-gold transition-colors duration-300;
+  }
+
+  .link-gold::after {
+    content: '';
+    @apply absolute bottom-[-4px] left-0 w-0 h-[1px] bg-gold transition-all duration-300;
+  }
+
+  .link-gold:hover::after {
+    @apply w-full;
+  }
+
+  /* Section heading decor */
+  .section-subtitle {
+    @apply text-xs uppercase tracking-[0.3em] font-semibold text-gold-bright mb-3 block;
+  }
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Text Masking / Gold Metallic Effect */
+.text-gold-metallic {
+  background: linear-gradient(135deg, #f5e2b3 0%, #c5a880 50%, #9a7b56 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

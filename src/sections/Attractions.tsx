@@ -9,64 +9,64 @@ export const Attractions: React.FC = () => {
     {
       title: 'Dubai Aquarium & Underwater Zoo',
       tagline: 'Deep Ocean in the Desert',
-      image: 'https://images.pexels.com/photos/1148998/pexels-photo-1148998.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      video: '',
+      // Official Dubai Aquarium — massive tank with sharks, rays
+      image: 'https://images.unsplash.com/photo-1498092651296-641e88c3b057?w=1200&q=80',
       description: 'One of the largest suspended aquariums in the world, featuring a 10-million litre tank with over 33,000 aquatic animals, including the largest collection of sand tiger sharks.',
       traffic: 'Draws over 10M+ ticketed visitors annually',
       sponsorOpportunity: 'Interactive digital screen networks, brand activations inside the underwater tunnel, naming rights for educational segments.',
       stats: [
         { label: 'Tank Capacity', value: '10 Million Litres' },
         { label: 'Species', value: '140+' },
-        { label: 'Tunnel Length', value: '48 Metres' }
-      ]
+        { label: 'Tunnel Length', value: '48 Metres' },
+      ],
     },
     {
       title: 'The Dubai Fountain',
       tagline: 'Light, Water & Symphony',
-      image: 'https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      video: '',
-      description: 'The world\'s tallest choreographed fountain system, shooting water up to 500 feet into the air. Synchronized to classical, contemporary, and Arabic musical masterpieces.',
+      // Dubai Fountain at night — iconic Burj Khalifa backdrop
+      image: 'https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=1200&q=80',
+      description: "The world's tallest choreographed fountain system, shooting water up to 500 feet into the air. Synchronized to classical, contemporary, and Arabic musical masterpieces.",
       traffic: 'Viewed by 50,000+ spectators every evening',
       sponsorOpportunity: 'Primary audio branding pre-show, laser projection sponsorships on the Burj Khalifa facade, lakeside bridge branding activations.',
       stats: [
         { label: 'Water Shooters', value: '22,000 Gallons' },
         { label: 'Height Range', value: 'Up to 150m' },
-        { label: 'Daily Shows', value: '12 Performances' }
-      ]
+        { label: 'Daily Shows', value: '12 Performances' },
+      ],
     },
     {
       title: 'Olympic-Sized Ice Rink',
       tagline: 'Year-Round Winter Playground',
-      image: 'https://images.pexels.com/photos/3617531/pexels-photo-3617531.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      video: '',
+      // Ice skating rink — clean ice, skaters
+      image: 'https://images.unsplash.com/photo-1555661530-68c8e98a4b3a?w=1200&q=80',
       description: 'A multi-functional venue hosting public skating sessions, figure skating lessons, ice hockey tournaments, and high-impact corporate product launches.',
       traffic: 'Popular local and tourist youth hub',
       sponsorOpportunity: 'Under-ice branding sheets, perimeter boards advertising, stadium naming rights, screen sponsorship during tournaments.',
       stats: [
         { label: 'Ice Thickness', value: '38 Millimetres' },
         { label: 'Spectator Seating', value: '350 Seats' },
-        { label: 'Event Capacity', value: '2,000 People' }
-      ]
+        { label: 'Event Capacity', value: '2,000 People' },
+      ],
     },
     {
       title: 'Play DXB (Virtual Reality Park)',
       tagline: 'Challenge Reality',
-      image: 'https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1200',
-      video: '',
+      // VR headset / immersive gaming experience
+      image: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=1200&q=80',
       description: 'The ultimate indoor virtual and augmented reality park. Offers immersive, mind-blowing educational and entertainment rides for families and adrenaline seekers.',
       traffic: 'High teenage and family dwell times',
       sponsorOpportunity: 'Custom interactive brand portals, game sponsorships, immersive DOOH screen naming, technology partnership branding.',
       stats: [
         { label: 'VR Attractions', value: '30+' },
         { label: 'Total Area', value: '7,000 m²' },
-        { label: 'Dwell Time Avg', value: '2.5 Hours' }
-      ]
-    }
+        { label: 'Dwell Time Avg', value: '2.5 Hours' },
+      ],
+    },
   ];
 
   return (
-    <section 
-      id="entertainment" 
+    <section
+      id="entertainment"
       className="relative py-24 md:py-32 bg-luxury-dark border-t border-luxury-gray/40 overflow-hidden"
     >
       <div className="absolute left-0 top-0 w-[400px] h-[400px] rounded-full bg-gold/5 blur-[150px] pointer-events-none" />
@@ -76,14 +76,17 @@ export const Attractions: React.FC = () => {
         <div className="max-w-3xl mb-16">
           <span className="section-subtitle">05 // Experiential Anchors</span>
           <h3 className="text-3xl sm:text-5xl font-display font-bold tracking-wider text-white mb-6 uppercase">
-            The Experiential Draw: <span className="text-gold-bright italic font-serif font-normal">Attractions</span>
+            The Experiential Draw:{' '}
+            <span className="text-gold-bright italic font-serif font-normal">Attractions</span>
           </h3>
           <p className="text-white/70 font-light leading-relaxed text-sm md:text-base max-w-xl">
-            Mega attractions differentiate Dubai Mall from traditional retail environments. They act as global anchors, drawing massive tourism and providing unique brand integration platforms.
+            Mega attractions differentiate Dubai Mall from traditional retail environments.
+            They act as global anchors, drawing massive tourism and providing unique brand
+            integration platforms.
           </p>
         </div>
 
-        {/* Tab Navigation buttons */}
+        {/* Tab Layout */}
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left: Tab Selectors */}
           <div className="lg:w-1/3 flex flex-col space-y-4">
@@ -115,7 +118,7 @@ export const Attractions: React.FC = () => {
             ))}
           </div>
 
-          {/* Right: Active Tab Details */}
+          {/* Right: Active Tab Detail */}
           <div className="lg:w-2/3">
             <AnimatePresence mode="wait">
               <motion.div
@@ -127,58 +130,42 @@ export const Attractions: React.FC = () => {
                 className="glass-panel p-8 sm:p-10 border border-luxury-gray/60 flex flex-col justify-between min-h-[500px]"
               >
                 <div>
-                  {/* Large Showcase Image/Video */}
+                  {/* Image */}
                   <div className="relative h-80 sm:h-[400px] w-full overflow-hidden mb-8 bg-luxury-gray group/img border border-white/5 shadow-2xl">
-                    {attractions[activeTab].video && (
-                      <video 
-                        src={attractions[activeTab].video}
-                        autoPlay 
-                        loop 
-                        muted 
-                        playsInline 
-                        poster={attractions[activeTab].image}
-                        className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover/img:scale-105"
-                        onError={(e) => { 
-                          e.currentTarget.style.display = 'none'; 
-                          const img = e.currentTarget.parentElement?.querySelector('img'); 
-                          if (img) img.style.display = 'block'; 
-                        }}
-                      />
-                    )}
-                    <img 
-                      src={attractions[activeTab].image} 
-                      alt={attractions[activeTab].title} 
+                    <img
+                      src={attractions[activeTab].image}
+                      alt={attractions[activeTab].title}
                       className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover/img:scale-105"
-                      style={{ display: attractions[activeTab].video ? 'none' : 'block' }}
-                      onError={(e) => { e.currentTarget.src = '/placeholder.png'; }}
+                      onError={(e) => {
+                        e.currentTarget.src =
+                          'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80';
+                      }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-10 transition-colors duration-500 group-hover/img:bg-black/10" />
-                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-10" />
+
                     {/* Traffic Tag */}
                     <div className="absolute bottom-4 left-4 z-20 flex items-center space-x-2 bg-luxury-black/95 px-4 py-2 border border-gold/20 backdrop-blur-sm">
-                      <Compass className="w-3.5 h-3.5 text-gold animate-spin-slow" />
+                      <Compass className="w-3.5 h-3.5 text-gold" />
                       <span className="text-[9px] tracking-widest text-white uppercase font-semibold">
                         {attractions[activeTab].traffic}
                       </span>
                     </div>
                   </div>
 
-                  {/* Title & Tagline */}
+                  {/* Title */}
                   <h4 className="text-2xl sm:text-3xl font-display font-semibold text-white tracking-wider mb-2">
                     {attractions[activeTab].title}
                   </h4>
                   <p className="text-xs text-gold uppercase tracking-[0.25em] font-semibold mb-6">
                     {attractions[activeTab].tagline}
                   </p>
-
                   <p className="text-white/70 font-light text-xs sm:text-sm leading-relaxed mb-8">
                     {attractions[activeTab].description}
                   </p>
 
-                  {/* Divider */}
                   <div className="h-[1px] bg-luxury-gray/60 w-full my-6" />
 
-                  {/* Stats Row */}
+                  {/* Stats */}
                   <div className="grid grid-cols-3 gap-4 mb-8">
                     {attractions[activeTab].stats.map((stat, idx) => (
                       <div key={idx} className="flex flex-col">
@@ -192,7 +179,7 @@ export const Attractions: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* Sponsorship Opportunities */}
+                  {/* Sponsorship */}
                   <div className="bg-luxury-black/60 border border-gold/10 p-4 sm:p-6 mb-4">
                     <h5 className="text-[10px] tracking-widest font-semibold text-gold uppercase mb-2 flex items-center">
                       <ShieldCheck className="w-4 h-4 mr-2" />
@@ -204,10 +191,10 @@ export const Attractions: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Call to Action */}
+                {/* CTA */}
                 <div className="mt-8 flex justify-end">
-                  <a 
-                    href="#leasing" 
+                  <a
+                    href="#leasing"
                     className="flex items-center space-x-2 group text-xs text-gold-bright uppercase tracking-widest font-semibold"
                   >
                     <span>Inquire About Integration</span>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, Compass, ArrowRight } from 'lucide-react';
-
+ 
 export const Attractions: React.FC = () => {
   const [activeTab, setActiveTab] = useState(0);
-
+ 
   const attractions = [
     {
       title: 'Dubai Aquarium & Underwater Zoo',
@@ -63,14 +63,14 @@ export const Attractions: React.FC = () => {
       ],
     },
   ];
-
+ 
   return (
     <section
       id="entertainment"
       className="relative py-24 md:py-32 bg-luxury-dark border-t border-luxury-gray/40 overflow-hidden"
     >
       <div className="absolute left-0 top-0 w-[400px] h-[400px] rounded-full bg-gold/5 blur-[150px] pointer-events-none" />
-
+ 
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
@@ -85,7 +85,7 @@ export const Attractions: React.FC = () => {
             integration platforms.
           </p>
         </div>
-
+ 
         {/* Tab Layout */}
         <div className="flex flex-col lg:flex-row gap-12">
           {/* Left: Tab Selectors */}
@@ -117,7 +117,7 @@ export const Attractions: React.FC = () => {
               </button>
             ))}
           </div>
-
+ 
           {/* Right: Active Tab Detail */}
           <div className="lg:w-2/3">
             <AnimatePresence mode="wait">
@@ -151,7 +151,7 @@ export const Attractions: React.FC = () => {
                       </span>
                     </div>
                   </div>
-
+ 
                   <h4 className="text-2xl sm:text-3xl font-display font-semibold text-white tracking-wider mb-2">
                     {attractions[activeTab].title}
                   </h4>
@@ -161,9 +161,9 @@ export const Attractions: React.FC = () => {
                   <p className="text-white/70 font-light text-xs sm:text-sm leading-relaxed mb-8">
                     {attractions[activeTab].description}
                   </p>
-
+ 
                   <div className="h-[1px] bg-luxury-gray/60 w-full my-6" />
-
+ 
                   <div className="grid grid-cols-3 gap-4 mb-8">
                     {attractions[activeTab].stats.map((stat, idx) => (
                       <div key={idx} className="flex flex-col">
@@ -176,7 +176,7 @@ export const Attractions: React.FC = () => {
                       </div>
                     ))}
                   </div>
-
+ 
                   <div className="bg-luxury-black/60 border border-gold/10 p-4 sm:p-6 mb-4">
                     <h5 className="text-[10px] tracking-widest font-semibold text-gold uppercase mb-2 flex items-center">
                       <ShieldCheck className="w-4 h-4 mr-2" />
@@ -187,7 +187,7 @@ export const Attractions: React.FC = () => {
                     </p>
                   </div>
                 </div>
-
+ 
                 <div className="mt-8 flex justify-end">
                   <a
                     href="#leasing"

@@ -9,8 +9,8 @@ export const Attractions: React.FC = () => {
     {
       title: 'Dubai Aquarium & Underwater Zoo',
       tagline: 'Deep Ocean in the Desert',
-      // Official Dubai Aquarium — massive tank with sharks, rays
-      image: 'https://images.unsplash.com/photo-1498092651296-641e88c3b057?w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1200&q=80',
+      fallback: 'https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=1200&q=80',
       description: 'One of the largest suspended aquariums in the world, featuring a 10-million litre tank with over 33,000 aquatic animals, including the largest collection of sand tiger sharks.',
       traffic: 'Draws over 10M+ ticketed visitors annually',
       sponsorOpportunity: 'Interactive digital screen networks, brand activations inside the underwater tunnel, naming rights for educational segments.',
@@ -23,8 +23,8 @@ export const Attractions: React.FC = () => {
     {
       title: 'The Dubai Fountain',
       tagline: 'Light, Water & Symphony',
-      // Dubai Fountain at night — iconic Burj Khalifa backdrop
-      image: 'https://images.unsplash.com/photo-1526495124232-a04e1849168c?w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80',
+      fallback: 'https://images.unsplash.com/photo-1512632578888-169bbbc64f33?w=1200&q=80',
       description: "The world's tallest choreographed fountain system, shooting water up to 500 feet into the air. Synchronized to classical, contemporary, and Arabic musical masterpieces.",
       traffic: 'Viewed by 50,000+ spectators every evening',
       sponsorOpportunity: 'Primary audio branding pre-show, laser projection sponsorships on the Burj Khalifa facade, lakeside bridge branding activations.',
@@ -37,8 +37,8 @@ export const Attractions: React.FC = () => {
     {
       title: 'Olympic-Sized Ice Rink',
       tagline: 'Year-Round Winter Playground',
-      // Ice skating rink — clean ice, skaters
-      image: 'https://images.unsplash.com/photo-1555661530-68c8e98a4b3a?w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1471591373672-51fb32a84e50?w=1200&q=80',
+      fallback: 'https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=1200&q=80',
       description: 'A multi-functional venue hosting public skating sessions, figure skating lessons, ice hockey tournaments, and high-impact corporate product launches.',
       traffic: 'Popular local and tourist youth hub',
       sponsorOpportunity: 'Under-ice branding sheets, perimeter boards advertising, stadium naming rights, screen sponsorship during tournaments.',
@@ -51,8 +51,8 @@ export const Attractions: React.FC = () => {
     {
       title: 'Play DXB (Virtual Reality Park)',
       tagline: 'Challenge Reality',
-      // VR headset / immersive gaming experience
-      image: 'https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=1200&q=80',
+      image: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=1200&q=80',
+      fallback: 'https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?w=1200&q=80',
       description: 'The ultimate indoor virtual and augmented reality park. Offers immersive, mind-blowing educational and entertainment rides for families and adrenaline seekers.',
       traffic: 'High teenage and family dwell times',
       sponsorOpportunity: 'Custom interactive brand portals, game sponsorships, immersive DOOH screen naming, technology partnership branding.',
@@ -137,13 +137,13 @@ export const Attractions: React.FC = () => {
                       alt={attractions[activeTab].title}
                       className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover/img:scale-105"
                       onError={(e) => {
-                        e.currentTarget.src =
-                          'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80';
+                        const target = e.currentTarget;
+                        if (target.src !== attractions[activeTab].fallback) {
+                          target.src = attractions[activeTab].fallback;
+                        }
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/20 z-10" />
-
-                    {/* Traffic Tag */}
                     <div className="absolute bottom-4 left-4 z-20 flex items-center space-x-2 bg-luxury-black/95 px-4 py-2 border border-gold/20 backdrop-blur-sm">
                       <Compass className="w-3.5 h-3.5 text-gold" />
                       <span className="text-[9px] tracking-widest text-white uppercase font-semibold">
@@ -152,7 +152,6 @@ export const Attractions: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* Title */}
                   <h4 className="text-2xl sm:text-3xl font-display font-semibold text-white tracking-wider mb-2">
                     {attractions[activeTab].title}
                   </h4>
@@ -165,7 +164,6 @@ export const Attractions: React.FC = () => {
 
                   <div className="h-[1px] bg-luxury-gray/60 w-full my-6" />
 
-                  {/* Stats */}
                   <div className="grid grid-cols-3 gap-4 mb-8">
                     {attractions[activeTab].stats.map((stat, idx) => (
                       <div key={idx} className="flex flex-col">
@@ -179,7 +177,6 @@ export const Attractions: React.FC = () => {
                     ))}
                   </div>
 
-                  {/* Sponsorship */}
                   <div className="bg-luxury-black/60 border border-gold/10 p-4 sm:p-6 mb-4">
                     <h5 className="text-[10px] tracking-widest font-semibold text-gold uppercase mb-2 flex items-center">
                       <ShieldCheck className="w-4 h-4 mr-2" />
@@ -191,7 +188,6 @@ export const Attractions: React.FC = () => {
                   </div>
                 </div>
 
-                {/* CTA */}
                 <div className="mt-8 flex justify-end">
                   <a
                     href="#leasing"
